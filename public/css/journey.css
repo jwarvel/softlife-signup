@@ -1,0 +1,33 @@
+.journey {
+    margin-top: 10px;
+}
+
+.journey .logo {
+    border-radius: 10px;
+    font-family: "Times New Roman", Times, Georgia, serif;
+    font-size: 2em;
+    color:#ffffff
+}
+
+.journey .logo-text {
+    margin: 20px 0px 20px 0px;
+}
+
+.journey .logo-tagline {
+    font-style: italic;
+    font-size: .5em;
+    margin-left: 5px
+}
+
+.journey .inputwrap {
+    margin: 20px;
+}
+
+.journey .info {
+    margin: 20px 0px 20px 0px;
+    width: 500px;
+}
+
+.journey input {
+    margin-left: 10px;
+}

@@ -1,0 +1,4 @@
+node_modules
+xxpublic/js/libs/*
+!public/js/libs/plugins
+xxxserver/config/**
