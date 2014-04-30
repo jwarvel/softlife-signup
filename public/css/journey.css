@@ -30,4 +30,11 @@
 
 .journey input {
     margin-left: 10px;
+    color: #575bbe;
+    width: 250px;
+}
+
+.journey #success-modal {
+    display: none;
+    color: #575bbe;
 }

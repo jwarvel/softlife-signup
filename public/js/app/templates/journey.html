@@ -1,7 +1,8 @@
 <!-- HTML Template -->
 <div class="journey container">
     <div class="wrap">
-        <div class="logo"><span class="logo-text">softLife</span><span class="logo-tagline">because life shouldn't be hard</span></div>
+        <div class="logo"><span class="logo-text">softLife</span><span class="logo-tagline">because life shouldn't be hard</span>
+        </div>
 
         <div class="row">
             <div class="col-xs-12 col-md-8">
@@ -17,12 +18,12 @@
                     jet pack. Winners will be selected moments after they enter, and will be notified via twitter.
                 </div>
                 <div class="inputwrap"><label>Email Address</label>
-                    <input id='emailAddr'/></div>
+                    <input id='email-addr'/></div>
 
 
                 <div class="inputwrap">
                     <label>Twitter Handle</label>
-                    <input class="span3" id='twitterHandle'/>
+                    <input class="span3" id='twitter-handle'/>
                 </div>
                 <div class="inputwrap">
                     <button class='btn btn-primary' id='startJourney'>Enter the contest!</button>
@@ -34,8 +35,8 @@
 
                 <div id='journeyInfo'></div>
                 <div>
-                    <a class="twitter-timeline" href="https://twitter.com/PineappleyQOTD"
-                       data-widget-id="461374534965157888">Tweets by @PineappleyQOTD</a>
+                    <a class="twitter-timeline" href="https://twitter.com/softliferocks"
+                       data-widget-id="461527384546480128">Tweets by @softliferocks</a>
                     <script>!function (d, s, id) {
                         var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
                         if (!d.getElementById(id)) {
@@ -51,4 +52,20 @@
             </div>
         </div>
     </div>
+    <div class="modal fade " id="success-modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title">You're in!  Good luck!</h4>
+                </div>
+                <div class="modal-body">
+                    <p>You've been entered into the contest.  Check your email and Twitter mentions soon to see if you've won!</p>
+                </div>
+
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
 </div>
+
+

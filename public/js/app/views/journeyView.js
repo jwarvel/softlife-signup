@@ -33,9 +33,12 @@ define(["jquery", "backbone", "text!templates/journey.html", "models/currWxModel
                 // Dynamically updates the UI with the view's template
                 this.$el.html(this.template);
 
-                this.$email = this.$el.find('#emailAddr');
-                this.$twitter = this.$el.find('#twitterHandle');
+                this.$email = this.$el.find('#email-addr');
+                this.$twitter = this.$el.find('#twitter-handle');
 
+                this.$successModal = this.$el.find('#success-modal');
+
+                this.$successModal.modal({show:false});
 
                 // Maintains chainability
                 return this;
@@ -45,8 +48,8 @@ define(["jquery", "backbone", "text!templates/journey.html", "models/currWxModel
             startJourney: function () {
                 var self = this;
                 data = {};
-                data.primaryEmailAddress = this.$email.val();
-                data.twitterHandle = this.$twitter.val();
+                data.primaryEmailAddress = this.$email.val().replace(/\<|\>/gi,'');
+                data.twitterHandle = this.$twitter.val().replace(/@|\<|\>/gi,'')
                 data.twitterFollowers = '200';
                 url = "https://jwarvel-jbdbc-hw.herokuapp.com/fireEvent/helloWorld";
                 url = "http://softlife.herokuapp.com/fireEvent/helloWorld";
@@ -60,15 +63,19 @@ define(["jquery", "backbone", "text!templates/journey.html", "models/currWxModel
                         "Content-Type":"application/x-www-form-urlencoded; charset=UTF-8"
                     },
                     success: function (response, status) {
-                        console.log(response);
-                        //self.$el.find('#journeyInfo').html( response );
+                        self.complete();
                     },
                     error: function (error, response) {
-                        console.log('error starting')
+                        self.complete();
                     }
                 });
 
 
+            },
+            complete: function(){
+                this.$email.val('');
+                this.$twitter.val('');
+                this.$successModal.modal('show');
             }
 
         });
