@@ -38,3 +38,8 @@
     display: none;
     color: #575bbe;
 }
+
+.journey .disclaimer {
+    font-size: .5em;
+    margin-left: 20px;
+}

@@ -38,7 +38,7 @@ define(["jquery", "backbone", "text!templates/journey.html", "models/currWxModel
 
                 this.$successModal = this.$el.find('#success-modal');
 
-                this.$successModal.modal({show:false});
+                this.$successModal.modal({show: false});
 
                 // Maintains chainability
                 return this;
@@ -46,33 +46,37 @@ define(["jquery", "backbone", "text!templates/journey.html", "models/currWxModel
             },
 
             startJourney: function () {
-                var self = this;
-                data = {};
-                data.primaryEmailAddress = this.$email.val().replace(/\<|\>/gi,'');
-                data.twitterHandle = this.$twitter.val().replace(/@|\<|\>/gi,'')
-                data.twitterFollowers = '200';
-                url = "https://jwarvel-jbdbc-hw.herokuapp.com/fireEvent/helloWorld";
-                url = "http://softlife.herokuapp.com/fireEvent/helloWorld";
+                if ( this.$email.val() && this.$twitter.val() ){
 
-                // post to trigger app
-                $.ajax({
-                    type: "POST",
-                    url: url,
-                    data: data,
-                    headers: {
-                        "Content-Type":"application/x-www-form-urlencoded; charset=UTF-8"
-                    },
-                    success: function (response, status) {
-                        self.complete();
-                    },
-                    error: function (error, response) {
-                        self.complete();
-                    }
-                });
+                    var self = this;
+                    data = {};
+                    data.primaryEmailAddress = this.$email.val().replace(/\<|\>/gi, '');
+                    data.twitterHandle = this.$twitter.val().replace(/@|\<|\>/gi, '')
+                    data.twitterFollowers = '200';
+                    url = "https://jwarvel-jbdbc-hw.herokuapp.com/fireEvent/helloWorld";
+                    url = "http://softlife.herokuapp.com/fireEvent/helloWorld";
+
+                    // post to trigger app
+                    $.ajax({
+                        type: "POST",
+                        url: url,
+                        data: data,
+                        headers: {
+                            "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8"
+                        },
+                        success: function (response, status) {
+                            self.complete();
+                        },
+                        error: function (error, response) {
+                            self.complete();
+                        }
+                    });
+
+                }
 
 
             },
-            complete: function(){
+            complete: function () {
                 this.$email.val('');
                 this.$twitter.val('');
                 this.$successModal.modal('show');
