@@ -37,6 +37,8 @@ define(["jquery", "backbone", "text!templates/journey.html", "models/currWxModel
                 this.$twitter = this.$el.find('#twitter-handle');
 
                 this.$successModal = this.$el.find('#success-modal');
+                this.$successTitle = this.$el.find('#success-title');
+                this.$successMessage = this.$el.find('#success-message');
 
                 this.$successModal.modal({show: false});
 
@@ -65,15 +67,18 @@ define(["jquery", "backbone", "text!templates/journey.html", "models/currWxModel
                             "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8"
                         },
                         success: function (response, status) {
+                            self.$successTitle.html("You're in!  Good luck!")
+                            self.$successMessage.html( "You've been entered into the contest.  Check your email and Twitter mentions shortly to see if you've won!" );
                             self.complete();
                         },
                         error: function (error, response) {
+                            self.$successTitle.html("No jetpack for you!");
+                            self.$successMessage.html( "Sorry, we are unable to enter you in the contest at this time." );
                             self.complete();
                         }
                     });
 
                 }
-
 
             },
             complete: function () {
